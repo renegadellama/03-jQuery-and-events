@@ -47,11 +47,8 @@ articleView.handleCategoryFilter = function() {
 
 articleView.handleMainNav = function () {
   $('.main-nav').on('click', '.tab', function() {
-    /* TODO:
-      1. Hide all of the .tab-content sections
-      2. Fade in the single .tab-content section that is
-        associated with the .tab element's data-content attribute.
-    */
+    $('.tab-content').hide();
+    $('#' + $(this).attr('data-content')).show();
   });
   $('.main-nav .tab:first').click();
 };
@@ -71,4 +68,5 @@ articleView.setTeasers = function() {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
+articleView.handleMainNav();
 // TODO: Invoke all of the above functions (I mean, methods!):
