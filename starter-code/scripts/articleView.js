@@ -59,7 +59,7 @@ articleView.setTeasers = function() {
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the default action of a link.
-    2. Reveal everything in that particular article now.
+    2. Reveal everythi    ng in that particular article now.
     3. Hide that read-on link!
 
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
