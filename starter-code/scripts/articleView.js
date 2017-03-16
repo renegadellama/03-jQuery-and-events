@@ -21,21 +21,10 @@ articleView.handleAuthorFilter = function() {
       $('article').hide();
       $('article[data-attribute="' + $(this).val() + '"]').fadeIn();
       console.log(articleView);
-      /* TODO: If the select box changes to an option that has a value, we should:
-          1. Hide all of the articles
-          2. Fade in only the articles that match based on on the author
-            that was aselected. Hint: use an attribute selector to find
-            those articles that match the value, and then fade them in.
-            append to select element
-            must prevent redundancy in the menus.
-            2 lines of code in if, 2 in else
-        */
     } else {
       $('article').show();
       $('article.template').hide();
 
-    /* Otherwise, we should:
-        1. Show all the articles except the template */
     }
     $('#category-filter').val('');
   });
@@ -45,29 +34,15 @@ articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
-      $('article[data-attribute="' + $(this).val() + '"]').fadeIn();
+      $('article[data-category="' + $(this).val() + '"]').fadeIn();
       console.log(articleView);
-      /* TODO: If the select box changes to an option that has a value, we should:
-          1. Hide all of the articles
-          2. Fade in only the articles that match based on on the author
-            that was aselected. Hint: use an attribute selector to find
-            those articles that match the value, and then fade them in.
-            append to select element
-            must prevent redundancy in the menus.
-            2 lines of code in if, 2 in else
-        */
     } else {
       $('article').show();
       $('article.template').hide();
 
-    /* Otherwise, we should:
-        1. Show all the articles except the template */
     }
-    $('#category-filter').val('');
+    $('#author-filter').val('');
   });
-  /* TODO: Just like we do for #author-filter above, we should also handle
-  change events on the #category-filter element. Be sure to reset the
-  #author-filter while you're at it! */
 };
 
 articleView.handleMainNav = function () {
@@ -95,4 +70,5 @@ articleView.setTeasers = function() {
 };
 articleView.populateFilters();
 articleView.handleAuthorFilter();
+articleView.handleCategoryFilter();
 // TODO: Invoke all of the above functions (I mean, methods!):
