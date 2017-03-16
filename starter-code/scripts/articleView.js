@@ -18,11 +18,16 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
+      $('article').hide();
+      $('article').fadeIn('slow', $(this).val());
       /* TODO: If the select box changes to an option that has a value, we should:
           1. Hide all of the articles
           2. Fade in only the articles that match based on on the author
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
+            append to select element
+            must prevent redundancy in the menus.
+            2 lines of code in if, 2 in else
         */
     } else {
     /* Otherwise, we should:
