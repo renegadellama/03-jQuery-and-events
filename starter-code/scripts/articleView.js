@@ -19,7 +19,8 @@ articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide();
-      $('article').fadeIn('slow', $(this).val());
+      $('article[data-attribute="' + $(this).val() + '"]').fadeIn();
+      console.log(articleView);
       /* TODO: If the select box changes to an option that has a value, we should:
           1. Hide all of the articles
           2. Fade in only the articles that match based on on the author
@@ -30,6 +31,9 @@ articleView.handleAuthorFilter = function() {
             2 lines of code in if, 2 in else
         */
     } else {
+      $('article').show();
+      $('article.template').hide();
+
     /* Otherwise, we should:
         1. Show all the articles except the template */
     }
@@ -38,6 +42,29 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      $('article').hide();
+      $('article[data-attribute="' + $(this).val() + '"]').fadeIn();
+      console.log(articleView);
+      /* TODO: If the select box changes to an option that has a value, we should:
+          1. Hide all of the articles
+          2. Fade in only the articles that match based on on the author
+            that was aselected. Hint: use an attribute selector to find
+            those articles that match the value, and then fade them in.
+            append to select element
+            must prevent redundancy in the menus.
+            2 lines of code in if, 2 in else
+        */
+    } else {
+      $('article').show();
+      $('article.template').hide();
+
+    /* Otherwise, we should:
+        1. Show all the articles except the template */
+    }
+    $('#category-filter').val('');
+  });
   /* TODO: Just like we do for #author-filter above, we should also handle
   change events on the #category-filter element. Be sure to reset the
   #author-filter while you're at it! */
@@ -66,5 +93,6 @@ articleView.setTeasers = function() {
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
   */
 };
-
+articleView.populateFilters();
+articleView.handleAuthorFilter();
 // TODO: Invoke all of the above functions (I mean, methods!):
